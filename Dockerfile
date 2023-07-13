@@ -48,7 +48,16 @@ RUN chown www-data /var/lib/ckan/default
 RUN chmod u+rwx /var/lib/ckan/default
 
 # 5. Update the configuration and initialize the database
-RUN sed -i "s/^ckan\.site_url = http:\/\/127.0.0.1:5000$/ckan.site_url = http:\/\/localhost:5000/" /etc/ckan/default/ckan.ini
+RUN rm -rf /etc/ckan/default/ckan.ini
+COPY assets/ckan.ini /etc/ckan/default/ckan.ini
+
+ARG site_url="http://localhost:5000"
+RUN sed -i "s;^ckan\.site_url = http://127.0.0.1:5000$;ckan.site_url = $site_url;" /etc/ckan/default/ckan.ini
+
+RUN . /usr/lib/ckan/default/bin/activate &&\
+  pip install -r /usr/lib/ckan/default/src/ckan/requirements.txt &&\
+  pip install -r /usr/lib/ckan/default/src/ckan/dev-requirements.txt
+
 COPY assets/ckan_default.dump .
 RUN /etc/init.d/postgresql start &&\
   psql -U postgres ckan_default < ckan_default.dump
