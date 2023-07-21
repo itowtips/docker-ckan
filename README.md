@@ -27,7 +27,21 @@ docker run -d --name ckan --publish=5000:80 --publish=8983:8983 shirasagi/ckan
 - ckan 2.10 ([install-from-package](https://docs.ckan.org/en/2.10/maintaining/installing/install-from-package.html))
 
 
-### admin user
+### default user
+
+~~~
+
+default / root1234
+
+~~~
+
+~~~
+
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJBQVNLX19lQUMwQ3dxV0VjNXZKcW9hQy1zbWt1dExaU0NORWotMzlYZVZBIiwiaWF0IjoxNjg5ODM1ODMyfQ.rWZGXCfSVDN9jISBcJ8qlyVq_bMKKPOokKdUOe65LJ4
+
+~~~
+
+### sys user
 
 ~~~
 
@@ -35,11 +49,15 @@ sys / root1234
 
 ~~~
 
-### api key
+~~~
+
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIwOGl1SmZmcV9pTjF5TUdtUXBPckFmS0lEcV9KWkl0Rl9VQlBYblhJS3FvIiwiaWF0IjoxNjg5ODM1ODY1fQ.fiOLxcRWc5rgs8JyGwp9xYuTivilL_a40QLbNesaIHY
 
 ~~~
 
-eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIwWVltSlMzNUdyVFFoRmVpRkdqR3lFV0VUQ0tyS0ZKM3NFcFZXd1VmamtnIiwiaWF0IjoxNjg5MTQyOTY3fQ.RH4fAt8i5IJomMY0K5kbBhMQ99mdTT34J8D6Uk0_iYY
+### references
 
-~~~
-
+- [ckan 2.10.1](https://docs.ckan.org/en/2.10/maintaining/installing/install-from-package.html)
+- [datastore](https://docs.ckan.org/en/2.10/maintaining/datastore.html)
+- [datapusher](https://github.com/ckan/datapusher)
+- [preview plugins](https://docs.ckan.org/en/2.10/maintaining/data-viewer.html)
