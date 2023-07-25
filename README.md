@@ -14,7 +14,7 @@ docker image build -t shirasagi/ckan . --progress plain
 
 ~~~
 
-docker run -d --name ckan --publish=5000:80 --publish=8983:8983 shirasagi/ckan
+docker run -d --name ckan --publish=8080:80 --publish=8800:8800 --publish=8983:8983 shirasagi/ckan
 
 ~~~
 
