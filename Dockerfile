@@ -98,9 +98,12 @@ EXPOSE 8080
 EXPOSE 8800
 EXPOSE 8983
 
-COPY assets/launch.sh .
-RUN chmod +x launch.sh
-CMD ./launch.sh
+CMD /etc/init.d/postgresql start &&\
+  /etc/init.d/solr start &&\
+  /etc/init.d/redis-server start &&\
+  /etc/init.d/supervisor start &&\
+  /etc/init.d/nginx start &&\
+  tail -f /var/log/ckan/ckan-uwsgi.stdout.log
 
 # docker image build -t shirasagi/ckan . --progress plain
 # docker run -d --name ckan --publish=8080:80 --publish=8800:8800 --publish=8983:8983 shirasagi/ckan
